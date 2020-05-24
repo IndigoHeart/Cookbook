@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cookbook.Models
 {
-    public class Category
+    public class ProductCategory
     {
         [Key]
         public int Id { get; set; }
