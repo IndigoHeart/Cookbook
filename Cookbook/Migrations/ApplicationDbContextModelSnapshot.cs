@@ -31,7 +31,7 @@ namespace Cookbook.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("MealType");
+                    b.ToTable("MealTypes");
                 });
 
             modelBuilder.Entity("Cookbook.Models.Product", b =>

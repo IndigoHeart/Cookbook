@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Cookbook.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200524103508_ModelUpdate")]
-    partial class ModelUpdate
+    [Migration("20200524121446_ModelUpdatev3")]
+    partial class ModelUpdatev3
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -33,7 +33,7 @@ namespace Cookbook.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("MealType");
+                    b.ToTable("MealTypes");
                 });
 
             modelBuilder.Entity("Cookbook.Models.Product", b =>
@@ -43,14 +43,14 @@ namespace Cookbook.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("CategoryId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Discription")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ProductCategoryId")
+                        .HasColumnType("int");
 
                     b.Property<int?>("RecipeId")
                         .HasColumnType("int");
@@ -60,7 +60,7 @@ namespace Cookbook.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoryId");
+                    b.HasIndex("ProductCategoryId");
 
                     b.HasIndex("RecipeId");
 
@@ -158,9 +158,9 @@ namespace Cookbook.Migrations
 
             modelBuilder.Entity("Cookbook.Models.Product", b =>
                 {
-                    b.HasOne("Cookbook.Models.ProductCategory", "Category")
+                    b.HasOne("Cookbook.Models.ProductCategory", "ProductCategory")
                         .WithMany()
-                        .HasForeignKey("CategoryId");
+                        .HasForeignKey("ProductCategoryId");
 
                     b.HasOne("Cookbook.Models.Recipe", null)
                         .WithMany("Products")

@@ -13,6 +13,7 @@ namespace Cookbook.Models
         public DbSet<Product> Products { get; set; }
         public DbSet<Recipe> Recipes { get; set; }
         public DbSet<ProductCategory> Categories { get; set; }
+        public DbSet<MealType> MealTypes { get; set; }
         public DbSet<ShoppingCart> ShoppingCarts { get; set; }
         public DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
 
