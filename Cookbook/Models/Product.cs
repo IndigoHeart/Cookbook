@@ -12,6 +12,6 @@ namespace Cookbook.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string Discription { get; set; }
-        public ProductCategory Category { get; set; }
+        public ProductCategory ProductCategory { get; set; }
     }
 }
